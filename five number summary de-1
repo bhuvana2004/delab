@@ -1,0 +1,68 @@
+#include<stdio.h>
+int main()
+{
+int age[100],n,i;
+printf("enter size of array");
+scanf("%d",&n);
+for(i=0;i<n;i++)
+{
+scanf("%d",&age[i]);
+}
+int sum=0,mean;
+int median;
+for(i=0;i<n;i++)
+{
+        sum=sum+age[i];
+}
+mean=sum/n;
+printf("mean of data %d\n",mean);
+if(n%2==0)
+{
+        median=(age[n/2]+age[n/2+1])/2;
+       
+}
+else
+{
+        median=age[n/2];
+   
+}
+printf("median %d\n",median);
+//mode
+int c[100],mode,count;
+for(i=0;i<n;i++)
+{
+    count=1;
+for(int j=i+1;j<n;j++)
+{
+    if(age[i]==age[j])
+    {
+        count++;
+     }
+}
+c[i]=count;
+
+}
+int max=c[0],m_i;
+for(i=0;i<n;i++)
+{
+    if(c[i]>max)
+    {
+        max=c[i];
+        m_i=i;
+       
+    }
+}
+printf("max%d\n",max);
+printf("mode%d\n",age[m_i]);
+//mid range
+float midr;
+midr=(age[n-1]+age[0])/2.0;
+printf("midrange %f\n",midr);
+//q1 and q3
+int q1,q3;
+q1=age[(n+1)/4];
+q3=age[(3*(n+1))/4];
+printf("q1 and q3 %d %d\n",q1,q3);
+printf("five number summary\n");
+printf("min q1 median q3 max %d %d %d %d %d",age[0],q1,median,q3,age[n-1]);
+}
