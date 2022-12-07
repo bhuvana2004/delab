@@ -1,0 +1,54 @@
+23 23 27 27 39 41 47 49 50 52 54 54 56 57 58 58 60 61
+9.5 26.5 7.8 17.8 31.4 25.9 27.4 27.2 31.2 34.6 42.5 28.8 33.4 30.2 34.1 32.9 41.2 35.7
+#include<stdio.h>
+#include<math.h>
+void corr(int a[],float f[],int n,int m)
+{
+    float cov,sxy=0,xbar=0,ybar=0,x,y,s,xy;
+    for(int i=0;i<n;i++)
+    {
+     for(int j=0;j<m;j++)
+        {
+            if(i==j)
+            {
+              sxy=(a[i]*f[j])+sxy;
+            }
+            
+        }
+      }
+    s=sxy/n;
+    printf("%f\n",s);
+    for(int i=0;i<n;i++)
+      {
+          xbar=a[i]+xbar;
+      }
+    for(int j=0;j<n;j++)
+    {
+      ybar=f[j]+ybar;
+    }
+x=xbar/n;
+y=ybar/m;
+xy=x*y;
+cov=s-xy;
+printf("%f",x);
+printf("%f",y);
+printf("cov %f",cov);
+
+}
+void main()
+{
+    int n,m;
+    printf("enter size of age array");
+    scanf("%d",&n);
+    printf("enter size of fats array");
+    scanf("%d",&m);
+    int a[n];
+    float f[m];
+    printf("enter ages");
+    for(int i=0;i<n;i++)
+    scanf("%d",&a[i]);
+    printf("enter fat values");
+    for(int j=0;j<m;j++)
+    scanf("%f",&f[j]);
+    corr(a,f,n,m);
+}
